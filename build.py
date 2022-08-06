@@ -9,9 +9,6 @@ gfw_url = 'https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/releas
 greatfire_url = 'https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/greatfire.txt'
 telegram_url = 'https://core.telegram.org/resources/cidr.txt'
 
-
-
-
 def get_rule(rules_url):
     success = False
     try_times = 0
