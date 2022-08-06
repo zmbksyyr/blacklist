@@ -69,7 +69,7 @@ def getRulesStringFromFile(allrules, kind):
             ret += rule + '\n'
         else:
             prefix = 'DOMAIN-SUFFIX'
-            if re.match(ipv4|ipv6, rule):
+            if re.match(ipv4, rule) or re.match(ipv6, rule):
                 prefix = 'IP-CIDR'
                 if '/' not in rule:
                     rule += '/32'
