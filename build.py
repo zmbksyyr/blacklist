@@ -25,7 +25,7 @@ def get_rule(rules_url):
     if not success:
         raise Exception('error in request %s\n\treturn code: %d' % (rules_url, r.status_code) )
 
-    return rule
+    return r.text
 
 
 def clear_format(rule):
