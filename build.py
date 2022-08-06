@@ -50,8 +50,8 @@ def getRulesStringFromFile(allrules, kind):
             if re.match(r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}', rule):
                 prefix = 'IP-CIDR'
                 if '/' not in rule:
-                    content += '/32'
-            elif '.' not in content and len(rule) > 1:
+                    rule += '/32'
+            elif '.' not in rule and len(rule) > 1:
                 prefix = 'DOMAIN-KEYWORD'
 
             ret += prefix + ',%s,%s\n' % (rule, kind)
