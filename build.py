@@ -73,8 +73,8 @@ def getRulesStringFromFile(allrules, kind):
                 prefix = 'IP-CIDR'
                 if '/' not in rule:
                     rule += '/32'
-	    elif re.match(ipv6, rule):
-		prefix = 'IP-CIDR'
+            elif re.match(ipv6, rule):
+                prefix = 'IP-CIDR'
             elif '.' not in rule and len(rule) > 1:
                 prefix = 'DOMAIN-KEYWORD'
 
