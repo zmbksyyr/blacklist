@@ -38,6 +38,7 @@ def clear_format(rule):
     return rules
 
 def getRulesStringFromFile(allrules, kind):
+    ret = ''
     for rule in allrules:
         rule = rule.strip('\r\n')
         if not len(rule):
