@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  schedule:
+    - cron:  "0 22 * * *"
+
+  push:
+    branches:
+    - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      - name: Install requirements
+        run: pip3 install -r requirements.txt
+
+      - name: Run build.py
+        run: python3 build.py
+        
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@4.1.7
+        with:
+          BRANCH: master
+          FOLDER: .
+          commit-message : 'Nightly build'
