@@ -48,7 +48,7 @@ def getRulesStringFromFile(allrules, kind):
             ret += rule + '\n'
         else:
             prefix = 'DOMAIN-SUFFIX'
-            if re.match(r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}', rule) or re.match(r'^(?:[A-F0-9]{1,4}:){7}[A-F0-9]{1,4}$'):
+            if re.match(r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}', rule) or re.match(r'^(?:[A-F0-9]{1,4}:){7}[A-F0-9]{1,4}$', rule):
                 prefix = 'IP-CIDR'
                 if '/' not in rule:
                     rule += '/32'
