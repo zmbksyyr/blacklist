@@ -46,18 +46,18 @@ def getRulesStringFromFile(allrules, kind):
         if not len(rule):
             continue
 
-        if content.startswith('#'):
-            ret += content + '\n'
+        if rule.startswith('#'):
+            ret += rule + '\n'
         else:
             prefix = 'DOMAIN-SUFFIX'
-            if re.match(r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}', content):
+            if re.match(r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}', rule):
                 prefix = 'IP-CIDR'
-                if '/' not in content:
+                if '/' not in rule:
                     content += '/32'
-            elif '.' not in content and len(content) > 1:
+            elif '.' not in content and len(rule) > 1:
                 prefix = 'DOMAIN-KEYWORD'
 
-            ret += prefix + ',%s,%s\n' % (content, kind)
+            ret += prefix + ',%s,%s\n' % (rule, kind)
 
     return ret
 
