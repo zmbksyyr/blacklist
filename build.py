@@ -60,7 +60,7 @@ def getRulesStringFromFile(allrules, kind):
 #             elif '.' not in rule and len(rule) > 1:
 #                 prefix = 'DOMAIN-KEYWORD'
             prefix = 'RULE-SET'
-            ret += prefix + ',%s,%s\n' % (rule, kindA)
+            ret += prefix + ',%s,%s\n' % (rule, kind)
 
     return ret
 
