@@ -69,7 +69,7 @@ rule = get_rule(gfw_url) + get_rule(greatfire_url) + get_rule(telegram_url)
 
 rules = clear_format(rule)
 
-# rules = list( set(rules) )
+rules = sorted( list( set(rules) ))
 
 # make values
 values = {}
