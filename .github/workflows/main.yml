@@ -27,5 +27,3 @@ jobs:
           BRANCH: main
           FOLDER: .
           commit-message : 'Nightly build'
-      - name: Merge me!
-        uses: ridedott/merge-me-action@v2
