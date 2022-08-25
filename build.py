@@ -74,7 +74,7 @@ def getRulesStringFromFile(allrules, kind):
             ret += rule + '\n'
         else:
             prefix = 'RULE-SET'
-            elif re.match(ipv4, rule) or rule.count(':') != 0:
+            if re.match(ipv4, rule) or rule.count(':') != 0:
                 prefix = 'IP-CIDR'
                 if '/' not in rule:
                     rule += '/32'
