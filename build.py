@@ -79,7 +79,7 @@ def getRulesStringFromFile(allrules, kind):
                 if '/' not in rule:
                     rule += '/32'
             elif '.' not in rule and len(rule) > 1:
-                prefix = 'RULE-SET'
+                prefix = 'DOMAIN-KEYWORD'
 
             ret += prefix + ',%s,%s\n' % (rule, kind)
 
