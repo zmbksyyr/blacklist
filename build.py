@@ -39,6 +39,30 @@ def clear_format(rule):
 
     return rules
 
+# def getRulesStringFromFile(allrules, kind):
+#     ret = ''
+#     for rule in allrules:
+#         rule = rule.strip('\r\n')
+#         if not len(rule):
+#             continue
+
+#         if rule.startswith('#'):
+#             ret += rule + '\n'
+#         else:
+#             prefix = 'DOMAIN-SUFFIX'
+#             if rule.count('.') == 1:
+#                 prefix = 'DOMAIN'
+#             elif re.match(ipv4, rule) or rule.count(':') != 0:
+#                 prefix = 'IP-CIDR'
+#                 if '/' not in rule:
+#                     rule += '/32'
+#             elif '.' not in rule and len(rule) > 1:
+#                 prefix = 'DOMAIN-KEYWORD'
+
+#             ret += prefix + ',%s,%s\n' % (rule, kind)
+
+#     return ret
+
 def getRulesStringFromFile(allrules, kind):
     ret = ''
     for rule in allrules:
@@ -49,19 +73,18 @@ def getRulesStringFromFile(allrules, kind):
         if rule.startswith('#'):
             ret += rule + '\n'
         else:
-            prefix = 'DOMAIN-SUFFIX'
-            if rule.count('.') == 1:
-                prefix = 'DOMAIN'
+            prefix = 'RULE-SET'
             elif re.match(ipv4, rule) or rule.count(':') != 0:
                 prefix = 'IP-CIDR'
                 if '/' not in rule:
                     rule += '/32'
             elif '.' not in rule and len(rule) > 1:
-                prefix = 'DOMAIN-KEYWORD'
+                prefix = 'RULE-SET'
 
             ret += prefix + ',%s,%s\n' % (rule, kind)
 
     return ret
+
 
 # main
 
