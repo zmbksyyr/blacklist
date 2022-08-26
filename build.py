@@ -50,9 +50,9 @@ def getRulesStringFromFile(allrules, kind):
             ret += rule + '\n'
         else:
             prefix = 'DOMAIN-SUFFIX'
-            if rule.count('.') == 1:
-                prefix = 'DOMAIN'
-            elif re.match(ipv4, rule) or rule.count(':') != 0:
+#             if rule.count('.') == 1:
+#                 prefix = 'DOMAIN'
+            if re.match(ipv4, rule) or rule.count(':') != 0:
                 prefix = 'IP-CIDR'
                 if '/' not in rule:
                     rule += '/32'
